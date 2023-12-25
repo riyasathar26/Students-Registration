@@ -1,0 +1,31 @@
+<odoo>
+    <template id="your_module_external_layout_boxed" inherit_id="web.external_layout_boxed">
+        <xpath expr="//div[@class='o_boxed_header']" position="replace">
+            <div class="o_boxed_header text-center">
+                <div class="row align-items-center">
+                    <div class="col-3">
+                        <div class="row mb4">
+                            <div class="col-12 text-left">
+                                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="max-height: 150px;"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row mb4">
+                            <div class="col-12 text-center">
+                                <h1 class="mt0" t-field="company.report_header"/>
+                                <div name="company_address" class="mb4">
+                                    <t t-raw="company.partner_id.name and '&lt;span style=&quot;font-weight: bold; font-size: 30px;&quot;&gt;' + company.partner_id.name + '&lt;/span&gt;'"/>
+                                    <t t-if="not company.partner_id.name" t-raw="company.partner_id.name"/>
+                                    <br/>
+                                    <span class="company_address" t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: true}" style="font-size: 20px;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3"> </div>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

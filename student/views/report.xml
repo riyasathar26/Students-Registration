@@ -1,0 +1,183 @@
+<odoo>
+    <data>
+        <template id="report_student_register">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout" class="text-center mb4" style="text-align:center;font-size:130%">
+                        <div style="text-align: center; font-weight: bold; margin-top: 20px;">
+                            <h5>Student Application Form</h5>
+                        </div> <br> </br>
+                        <hr style="border-top: 1px solid black; margin-bottom: 10px;"/>
+
+                        <div class="o_address_format"><h4 style="font-weight: bold; color: #7C7BAD;">Personal Information</h4>
+<!--                            &lt;!&ndash; Personal Information &ndash;&gt;-->
+
+                            <div class="o_row">
+                                <div style="float: left; width: 50%;">
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">First Name:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.firstName"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Middle Name:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.middleName"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Last Name:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.lastName"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Gender:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.gender"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Birth Date:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.birthDate"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Marital Status:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.maritalStatus"/></p><br></br>
+                                </div>
+                                <div style="float: right; width: 50%">
+                                    <img style="height: 228px; width: 200px; object-fit: contain;" t-attf-src="data:image/*;base64,{{o.image}}" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="o_row">
+                                <div style="float: right; width: 50%;">
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Phone:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.phone"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Mother Tongue:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.motherTongue"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Course:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.course_id.name"/></p><br></br>
+                                    <hr style="border-top: 1px solid black; margin-bottom: 10px;"/>
+                                </div>
+                                   <div style="float: left; width: 50%;">
+                                        <p style="font-weight: bold; display: inline-block; width: 150px;">Nationality:</p>
+                                        <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.nationality"/></p><br></br>
+                                        <p style="font-weight: bold; display: inline-block; width: 150px;">Email:</p>
+                                        <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.email"/></p><br></br>
+                                        <p style="font-weight: bold; display: inline-block; width: 150px;">Mobile:</p>
+                                        <p style="display: inline-block; margin-left:7px;"><t t-esc="o.mobile"/></p><br></br>
+                                        <hr style="border-top: 1px solid black; margin-bottom: 10px;"/>
+                                    </div>
+
+                            </div>
+
+                            <!-- Parent Details -->
+                            <div class="o_row"><h4 style="font-weight: bold; color: #7C7BAD;">Parent Details</h4>
+                                <div  style="float: left; width: 50%;">
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Father:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.father"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Father's Qualification:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.father_qualification"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Father's Job:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.father_job"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Father's Mobile:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.father_no"/></p><br></br>
+                                    <hr style="border-bottom: 1px solid black; margin-bottom: 10px;"/>
+                                </div>
+                                <div style="float: right; width: 50%;">
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Mother:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.mother"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Mother's Qualification:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.mother_qualification"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Mother's Job:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.mother_job"/></p><br></br>
+                                     <p style="font-weight: bold; display: inline-block; width: 150px;">Mother's Mobile:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.mother_no"/></p><br></br>
+                                    <hr style="border-bottom: 1px solid black; margin-bottom: 10px;"/>
+                                </div>
+                            </div>
+
+                            <!-- Address Information -->
+                          <div class="o_row">
+                            <div style="float: left; width: 50%;"><h4 style="color: #7C7BAD; font-weight: bold;">Present Address:</h4>
+                                <p><t t-esc="o.street1_c"/></p>
+                                <p><t t-esc="o.street2_c"/></p>
+                                <p><t t-esc="o.city_c"/></p>
+                                <p><t t-esc="o.state_c.name"/></p>
+                                <p><t t-esc="o.country_c.name"/></p>
+                                <p><t t-esc="o.zip_c"/></p>
+                                <hr style="border-bottom: 1px solid black; margin-bottom: 10px;"/>
+                            </div>
+                            <div style="float: right; width: 50%;"><h4 style="color: #7C7BAD; font-weight: bold;">Permanent Address:</h4>
+                                <p><t t-esc="o.street1_p"/></p>
+                                <p><t t-esc="o.street2_p"/></p>
+                                <p><t t-esc="o.city_p"/></p>
+                                <p><t t-esc="o.state_p.name"/></p>
+                                <p><t t-esc="o.country_p.name"/></p>
+                                <p><t t-esc="o.zip_p"/></p>
+                                <hr style="border-bottom: 1px solid black;  margin-bottom: 10px;"/>
+                            </div>
+                        </div>
+
+                            <!-- Additional Information -->
+                           <hr style="border-top: 1px solid black; margin-bottom: 10px;"/>
+                             <div class="o_row">
+                                 <div  style="float: left; width: 50%;page-break-inside: avoid;">
+                                     <h4 style="font-weight: bold; color: #7C7BAD;">Additional Information</h4>
+                                     <p style="font-weight: bold; display: inline-block; width: 150px;">Category:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.category"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Religion:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.religion"/></p><br></br>
+                                     <p style="font-weight: bold; display: inline-block; width: 150px;">Cast:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.cast"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Disability:</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.disability"/></p><br></br>
+                                     <hr style="border-bottom: 1px solid black; margin-bottom: 10px;"/>
+                                 </div>
+                             </div>
+
+                            <!-- Emergency Contact Details -->
+                            <div class="o_row">
+                                <div  style="float: right; width: 50%;  page-break-inside: avoid;">
+                                    <h4 style="font-weight: bold; color: #7C7BAD;">Emergency Contact Details</h4>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Guardian :</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.guardian"/></p><br></br>
+                                     <p style="font-weight: bold; display: inline-block; width: 150px;">Relationship :</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.relationship"/></p><br></br>
+                                    <p style="font-weight: bold; display: inline-block; width: 150px;">Mobile No. :</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.emergencyContact"/></p><br></br>
+                                     <p style="font-weight: bold; display: inline-block; width: 150px;">Telphone  No :</p>
+                                    <p style="display: inline-block; margin-left: 7px;"><t t-esc="o.emergencyMob"/></p><br></br>
+                                    <hr style="border-bottom: 1px solid black; margin-bottom: 10px;"/>
+
+                                 </div>
+                            </div>
+             <div class="o_row">
+                            <!-- Notebook: Education History -->
+                <div style="page-break-before: always;">
+                    <h4 style="font-weight: bold; color: #7C7BAD; float: left; width: 50%; margin-bottom:20px;">Education History</h4>
+                    <table style="width:100%; border-collapse: collapse; border: 1px solid black; margin-top: 15px;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid black;">
+                                <th style="text-align: left; font-weight: bold;margin-left:5px;">Qualification</th>
+                                <th style="text-align: left; font-weight: bold;margin-left:5px;">Institute</th>
+                                <th style="text-align: left;font-weight: bold;margin-left:5px;">Year of Passing</th>
+                                <th style="text-align: left;font-weight: bold;margin-left:5px;">University</th>
+                                <th style="text-align: left;font-weight: bold;margin-left:5px;">CGPA Obtained</th>
+                                <!-- Add more headers as needed -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="o.education_ids" t-as="education">
+                                <tr style="border-bottom: 1px solid black;">
+                                    <td style="margin-left:5px;"><t t-esc="education.education"/></td>
+                                    <td style="margin-left:5px;"><t t-esc="education.ugc_institute"/></td>
+                                    <td style="margin-left:5px;"><t t-esc="education.year_of_passing"/></td>
+                                    <td style="margin-left:5px;"><t t-esc="education.university"/></td>
+                                    <td style="margin-left:5px;"><t t-esc="education.cgpa_obtained"/></td>
+
+
+                                    <!-- Add more cells with other field values -->
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                 </div>
+             </div>
+
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <record id="action_report_student_register" model="ir.actions.report">
+            <field name="name">Students Register Report</field>
+            <field name="model">student.registration</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">student.report_student_register</field>
+        </record>
+    </data>
+</odoo>

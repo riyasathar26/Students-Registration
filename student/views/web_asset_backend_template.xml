@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Your existing view definition -->
+
+        <!-- Link your CSS file -->
+        <template id="assets_backend" name="custom_module assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/student/static/src/css/style.css"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            </xpath>
+        </template>
+
+
+    </data>
+</odoo>

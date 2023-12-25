@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <!-- Wizard View -->
+        <record id="view_checkinout_wizard_form" model="ir.ui.view">
+            <field name="name">checkinout.wizard.form</field>
+            <field name="model">student.attendance</field>
+            <field name="arch" type="xml" >
+                <form class="screen" reload="1" style="height: 80%; object-fit: contain;" >
+
+                    <div class="light-rosey-marron" style="width: 610px; object-fit: contain;" >
+                        <p style="font-size:20px;text-align:center;color:white;padding:20px">Student Check IN/OUT</p>
+                    </div>
+                    <div class="white-colored" style="height: 300px; width: 610px; object-fit: contain;" >
+                    <group>
+                        <field name="student_id" class="smaller-field" nolabel="1" style="width:90%;height:20%;margin-left : 45%;display: flex;  align-items: center;" placeholder="Select a Student." nocreate="1"  options="{'no_create_edit': True}" /> <br> </br>
+                        <h3 class="custom_text1" style="margin-left : 55%; display: flex;  align-items: center; " attrs="{'invisible': [('show_check_in_button','=',False)]}">Welcome!</h3><br></br>
+                        <field name="current_status" style="margin-left : 45%;" readonly="1" nolabel="1" class="custom_text2"/><br></br>
+                        <field name="show_check_in_button" invisible="1"/>
+                        <field name="show_check_out_button" invisible="1"/>
+                    </group>
+                    <footer>
+                            <button string="" class="icon1 fa fa-sign-in login-button" style="margin-left : 35%;margin-bottom : 5%;background-color: green;height: 30%;width:30%" type="object" name="action_checkin"
+                                    attrs="{'invisible': [('show_check_in_button', '=', False)]}" />
+                            <button string="" class="icon fa fa-sign-out login-button" style="margin-left : 35%;margin-bottom : 5%;background-color: yellow;height: 30%;width:30%"  type="object" name="action_checkout" attrs="{'invisible': [('show_check_out_button', '=', False)]}" />
+                    </footer>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- Wizard Action -->
+        <record id="action_checkinout_wizard" model="ir.actions.act_window">
+            <field name="name">Check In/Out</field>
+            <field name="res_model">student.attendance</field>
+            <field name="view_mode">form</field>
+        </record>
+
+
+        <!-- Menu Item for Check In/Out -->
+        <menuitem name="Check In/Out" id="menu_checkinout" parent="student_reg" action="action_checkinout_wizard" active="False"/>
+   </data>
+</odoo>

@@ -1,0 +1,61 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="student_voucher_tree">
+              <field name="name">voucher tree</field>
+              <field name="model">student.voucher</field>
+              <field name="arch" type="xml">
+            <tree>
+                   <field name="sequence_number"/>
+                   <field name="today_date"/>
+                  <field name="student_id"/>
+                  <field name="receipt_type"/>
+                  <field name="journal_id"/>
+<!--                  <field name="amount"/>-->
+            </tree>
+          </field>
+        </record>
+        <record model="ir.ui.view" id="voucher_form">
+            <field name="name">voucher form</field>
+            <field name="model">student.voucher</field>
+            <field name="arch" type="xml">
+                <form >
+                    <sheet>
+                        <div class="sequence-and-date" style="display: flex; justify-content: space-between; align-items: center;">
+                            <div class="sequence-number" style="font-weight: bold;">
+                                <h1>
+                                    <field name="sequence_number" widget="serial_number"/>
+                                </h1>
+                            </div>
+                            <div>
+                                <field name="today_date" string="Date" attrs="{'readonly': True}" />
+                            </div>
+                        </div>
+                          <hr style="border-color: #000; margin: 10px 0;"/>
+                        <group style="width: 700px; text-align: center;">
+                                <field name="student_id" options="{'no_create_edit': True}" placeholder="Select a Student." nocreate="1"/> <br> </br>
+                                <field name="receipt_type" string="Receipt Type"/>
+                                <field name="journal_id" required="1" options="{'no_create_edit': True}"/>
+                                <field name="amount" widget="monetary"   options="{'currency_field': 'currency_id'}"/>
+                                <field name="currency_id" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+          <record id="sequence_student_voucher" model="ir.sequence">
+            <field name="name">student.voucher_sequence</field>
+            <field name="code">student.voucher</field>
+            <field name="prefix">VNO</field>
+            <field name="padding">5</field>
+        </record>
+        <!-- Building Booking Action -->
+        <record model="ir.actions.act_window" id="voucher_action_window">
+            <field name="name">voucher</field>
+            <field name="res_model">student.voucher</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Building Booking Menu Item -->
+        <menuitem name="Receipt Voucher" id="voucher_menu" parent="student_reg" action="voucher_action_window"/>
+    </data>
+</odoo>
